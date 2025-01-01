@@ -41,5 +41,3 @@ ssh-keygen -p -f ~/.ssh/id_ed25519
 git remote set-url origin git@github.com:username/repository.git
 ```
 
-Test commit on GitHub web
-
