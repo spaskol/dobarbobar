@@ -29,7 +29,12 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 
 2. Add the SSH key in GitHub
 
-3. Set remote URL - this step is important
+```bash
+cat ~/.ssh/id_ed25519.pub
+```
+Copy and paste the output of the above command to GitHub
+
+4. Set remote URL - this step is important
 
 ```bash
 git remote set-url origin git@github.com:username/repository.git
