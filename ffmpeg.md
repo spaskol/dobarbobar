@@ -36,9 +36,10 @@ ffmpeg -i concat-video.mp4 -filter:v "setpts=0.01*PTS" -an output_tl.mp4
 
 ```bash
 ls -v | cat -n | while read n f; do mv -n "$f" "$n.mp4"; done 
+```
 
 if doesn't rename try to change "$n.mp4" to "$n.mp41" then back to "$n.mp4"
-```
+
 
 ## To make alias
 
