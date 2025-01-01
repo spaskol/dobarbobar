@@ -1,1 +1,0 @@
-Here I will put the code of a program python/android to check online status of a smart socket to send email in case the device is offline.
