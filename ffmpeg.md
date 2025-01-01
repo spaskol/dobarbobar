@@ -1,11 +1,11 @@
 # Create timelaps videos with ffmpeg on Linux
 
-First I list the video files in a text file.
+## First I list the video files in a text file.
 
 ```bash
 ls > mylist.txt
 ```
-workout with Excel/Calc
+## Workout with Excel/Calc then concatenate
 
 ```bash
 ffmpeg -f concat -safe 0 -i mylist.txt -c copy concat-video.mp4
