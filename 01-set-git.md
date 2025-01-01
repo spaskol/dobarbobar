@@ -19,7 +19,13 @@ git config --global user.name "Your Name"
 
 ## Make pushs/pulls without using user name and password
 
-Here I faced some issue. Here the steps I uses:
+While trying to push I recieved:
+
+```bash
+remote: Support for password authentication was removed on August 13, 2021.
+remote: Please see https://docs.github.com/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
+```
+So I have decided to use SSH key as authentification to train it. 
 
 1. Generate SSH key on the local machine
 
@@ -40,3 +46,4 @@ Copy and paste the output of the above command to GitHub
 git remote set-url origin git@github.com:username/repository.git
 ```
 
+Source: https://docs.github.com/en/authentication/connecting-to-github-with-ssh
