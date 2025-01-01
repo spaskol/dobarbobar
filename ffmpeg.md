@@ -9,11 +9,29 @@ workout with Excel/Calc
 
 ```bash
 ffmpeg -f concat -safe 0 -i mylist.txt -c copy concat-video.mp4
+```
 
+### Explanation of the Command
+
+- **`ffmpeg`**: The command-line tool for processing video and audio.
+
+- **`-f concat`**: Specifies that the input format is a concatenation file.
+
+- **`-safe 0`**: Allows potentially unsafe file paths in `mylist.txt`.  
+  Use `-safe 1` for stricter checking of file paths.
+
+- **`-i mylist.txt`**: Specifies the input file list (`mylist.txt`).
+
+- **`-c copy`**: Uses stream copying, avoiding re-encoding the video and audio, making the process faster and preserving quality.
+
+- **`concat-video.mp4`**: The output file containing the concatenated video.
+
+```bash
 find *.mp4 | sed 's:\ :\\\ :g'| sed 's/^/file /' > fl.txt; ffmpeg -f concat -i fl.txt -c copy concat-video.mp4; rm fl.txt
 
 ffmpeg -i concat-video.mp4 -filter:v "setpts=0.01*PTS" -an output_tl.mp4
 ```
+
 ## To rename, not needed if you sort in mrgv
 
 ```bash
