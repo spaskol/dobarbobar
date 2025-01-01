@@ -3,3 +3,7 @@
 *'test'* super
 
 Test also some formating meanwhile
+
+```yaml
+apiVersion: v1
+```
