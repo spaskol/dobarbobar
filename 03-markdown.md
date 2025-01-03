@@ -21,13 +21,13 @@ Here I will share what I have learned so far.
 starting with three backtricks \"\`\`\`markdown", \"\`\`\`bash\" and ending with three apostrophs \"\`\`\`\"
 
 ```markdown
-````
+
 ```bash
 #!/bin/bash
 
 echo "My bash script."
-```
-````
+`` ``` ``
+
 ```
 
 result
