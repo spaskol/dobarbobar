@@ -38,4 +38,4 @@ echo "My bash script."
 
 ## Escape special caracters
 
-this is done with backslash "\"
+this is done with backslash "\\"
