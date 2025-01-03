@@ -1,4 +1,4 @@
-# How to use markdown language
+# Markdown language tips & tricks
 
 I found recently that I can make nice formatting while creating notes on my NextCloud Notes and on GitHub.
 Here I will share what I have learned so far.
