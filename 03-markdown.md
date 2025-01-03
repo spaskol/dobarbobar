@@ -41,4 +41,14 @@ echo "My bash script."
 
 this is done with backslash "\\"
 
-Source: https://markdownmonster.west-wind.com
+if you need to escape fanced code add more backticks
+
+`````markdown
+````markdown
+```bash
+#!/bin/bash
+echo "My bash script."
+```
+````
+`````
+
