@@ -37,7 +37,7 @@ result
 echo "My bash script."
 ```
 
-## Escape special caracters
+## Escape special caracters and fenced code
 
 this is done with backslash "\\"
 
