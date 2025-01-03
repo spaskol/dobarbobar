@@ -20,14 +20,14 @@ Here I will share what I have learned so far.
 
 starting with three backtricks and the name of the language you fence \"\`\`\`markdown", \"\`\`\`bash\" and ending with three apostrophs \"\`\`\`\"
 
-```markdown
-~~~
+````markdown
+
 ```bash
 #!/bin/bash
 echo "My bash script."
 ```
-~~~
-```
+
+````
 
 result
 
