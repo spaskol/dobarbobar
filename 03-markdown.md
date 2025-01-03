@@ -25,7 +25,7 @@ starting with three apostrophs "```markdown", "```bash" and ending with three ap
 #!/bin/bash
 
 echo "My bash script."
-```
+/```
 ```
 
 result
