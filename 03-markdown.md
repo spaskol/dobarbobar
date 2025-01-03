@@ -18,7 +18,7 @@ Here I will share what I have learned so far.
 
 ## Quote code
 
-starting with three apostrophs \"\`\`\`markdown", \"\`\`\`bash\" and ending with three apostrophs \"\`\`\`\"
+starting with three backtricks \"\`\`\`markdown", \"\`\`\`bash\" and ending with three apostrophs \"\`\`\`\"
 
 ```markdown
 ~~~
@@ -41,3 +41,5 @@ echo "My bash script."
 ## Escape special caracters
 
 this is done with backslash "\\"
+
+Source: https://markdownmonster.west-wind.com
