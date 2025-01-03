@@ -16,18 +16,17 @@ Here I will share what I have learned so far.
 ### Heading2
 #### Heading3
 
-## Quote code
+## Fenced code
 
-starting with three backtricks \"\`\`\`markdown", \"\`\`\`bash\" and ending with three apostrophs \"\`\`\`\"
+starting with three backtricks and the name of the language you fence \"\`\`\`markdown", \"\`\`\`bash\" and ending with three apostrophs \"\`\`\`\"
 
 ```markdown
-
+~~~
 ```bash
 #!/bin/bash
-
 echo "My bash script."
-`` ``` ``
-
+```
+~~~
 ```
 
 result
