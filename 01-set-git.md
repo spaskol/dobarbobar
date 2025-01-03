@@ -25,7 +25,7 @@ While trying to push I recieved:
 remote: Support for password authentication was removed on August 13, 2021.
 remote: Please see https://docs.github.com/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication.
 ```
-So I have decided to use SSH key as authentification to train it. 
+So I have decided to use SSH key as authentification to study it. 
 
 1. Generate SSH key on the local machine
 
