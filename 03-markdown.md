@@ -18,7 +18,7 @@ Here I will share what I have learned so far.
 
 ## Quote code
 
-starting with three apostrophs \"\`\`\`markdown", "```bash" and ending with three apostrophs "```"
+starting with three apostrophs \"\`\`\`markdown", \"\`\`\`bash\" and ending with three apostrophs \"\`\`\`\"
 
 ```markdown
 ```bash
