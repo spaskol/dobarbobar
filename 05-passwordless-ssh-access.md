@@ -23,7 +23,7 @@ you need to enter the password
 Then use the following command to add the host key to the guest "authorized_keys" file
 
 ```bash
-cat dobarbobar.pub | tee -a authorized_keys
+cat ~/.ssh/dobarbobar.pub | tee -a ~/.ssh/authorized_keys
 ```
 
 ## Access the guest
