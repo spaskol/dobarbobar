@@ -28,25 +28,15 @@ public on the server and the private on the peer.  Put the preshared key in the 
 
 On the server, create a conf file - /etc/wireguard/wg0.conf (These are examples,
 so use whatever IP ranges and CIDR blocks that will work for your network.)
-The number after the ip e.g. "/24" or "/32" is very important.
-/24 - 
+The number after the ip (CIDR (Classless Inter-Domain Routing) notation) e.g. "/24" or "/32" is very important.
 
-CIDR	Subnet Mask	Total IPs	Usable IPs	Network Example
-/32	255.255.255.255	1	0	Single host only
-/31	255.255.255.254	2	2 (for point-to-point links)	
-/30	255.255.255.252	4	2	192.168.0.0 - 192.168.0.3
-/29	255.255.255.248	8	6	192.168.0.0 - 192.168.0.7
-/28	255.255.255.240	16	14	192.168.0.0 - 192.168.0.15
-/27	255.255.255.224	32	30	192.168.0.0 - 192.168.0.31
-/26	255.255.255.192	64	62	192.168.0.0 - 192.168.0.63
-/25	255.255.255.128	128	126	192.168.0.0 - 192.168.0.127
-/24	255.255.255.0	256	254	192.168.0.0 - 192.168.0.255
 
 | CIDR  | Subnet Mask        | Total IPs | Usable IPs                     | Network Example                  |
 |-------|--------------------|-----------|--------------------------------|----------------------------------|
 | /32   | 255.255.255.255   | 1         | 0                              | Single host only                |
 | /31   | 255.255.255.254   | 2         | 2 (for point-to-point links)   |                                  |
 | /30   | 255.255.255.252   | 4         | 2                              | 192.168.0.0 - 192.168.0.3       |
+| ...   | ...............   | ..        | ...                            | ...                             |
 | /24   | 255.255.255.0     | 256       | 254                            | 192.168.0.0 - 192.168.0.255     |
 
 ```bash
