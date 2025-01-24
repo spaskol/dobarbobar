@@ -4,7 +4,7 @@ Install WireGuard via whatever package manager you use.  For me, I use apt.
 $ sudo add-apt-repository ppa:wireguard/wireguard
 $ sudo apt-get update
 $ sudo apt-get install wireguard
-```bash
+```
 
 Generate key your key pairs.  The key pairs are just that, key pairs.  They can be
 generated on any device, as long as you keep the private key on the source and 
