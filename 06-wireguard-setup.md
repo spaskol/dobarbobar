@@ -20,7 +20,7 @@ $ wg genkey | tee privatekey | wg pubkey > publickey
 One can also generate a preshared key to add an additional layer of symmetric-key cryptography to be mixed into the already existing public-key cryptography, for post-quantum resistance.
 
 ```bash
-# wg genpsk > preshared
+$ wg genpsk > preshared
 ```
 
 Take the above private key, and place it in the server.  And conversely, put the 
