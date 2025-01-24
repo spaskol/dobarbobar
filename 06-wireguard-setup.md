@@ -12,13 +12,13 @@ place the public on the destination.
 
 ```bash
 $ wg genkey | tee privatekey | wg pubkey > publickey
-bash
+```
 
 One can also generate a preshared key to add an additional layer of symmetric-key cryptography to be mixed into the already existing public-key cryptography, for post-quantum resistance.
 
 ```bash
 # wg genpsk > preshared
-bash
+```
 
 Take the above private key, and place it in the server.  And conversely, put the 
 public key on the peer.  Generate a second key pair, and do the opposite, put the
@@ -28,35 +28,119 @@ public on the server and the private on the peer.  Put the preshared key in the 
 
 On the server, create a conf file - /etc/wireguard/wg0.conf (These are examples,
 so use whatever IP ranges and CIDR blocks that will work for your network.)
+The number after the ip e.g. "/24" or "/32" is very important.
+/24 - 
 
+CIDR	Subnet Mask	Total IPs	Usable IPs	Network Example
+/32	255.255.255.255	1	0	Single host only
+/31	255.255.255.254	2	2 (for point-to-point links)	
+/30	255.255.255.252	4	2	192.168.0.0 - 192.168.0.3
+/29	255.255.255.248	8	6	192.168.0.0 - 192.168.0.7
+/28	255.255.255.240	16	14	192.168.0.0 - 192.168.0.15
+/27	255.255.255.224	32	30	192.168.0.0 - 192.168.0.31
+/26	255.255.255.192	64	62	192.168.0.0 - 192.168.0.63
+/25	255.255.255.128	128	126	192.168.0.0 - 192.168.0.127
+/24	255.255.255.0	256	254	192.168.0.0 - 192.168.0.255
+
+| CIDR  | Subnet Mask        | Total IPs | Usable IPs                     | Network Example                  |
+|-------|--------------------|-----------|--------------------------------|----------------------------------|
+| /32   | 255.255.255.255   | 1         | 0                              | Single host only                |
+| /31   | 255.255.255.254   | 2         | 2 (for point-to-point links)   |                                  |
+| /30   | 255.255.255.252   | 4         | 2                              | 192.168.0.0 - 192.168.0.3       |
+| /24   | 255.255.255.0     | 256       | 254                            | 192.168.0.0 - 192.168.0.255     |
+
+```bash
 [Interface]
 Address = [custom IP in the range 10.8.x.x]/24
-PostUp = ufw route allow in on wg0 out on [your network adapter]
-PostUp = iptables -t nat -I POSTROUTING -o [your network adapter] -j MASQUERADE
+PostUp = ufw route allow in on wg0 out on [network adapter of the wireguard server]
+PostUp = iptables -t nat -I POSTROUTING -o network adapter of the wireguard server] -j MASQUERADE
 PreDown = ufw route delete allow in on wg0 out on [your network adapter]
-PreDown = iptables -t nat -D POSTROUTING -o [your network adapter] -j MASQUERADE
-ListenPort = [port of the server]
-PrivateKey = [private key of the server]
+PreDown = iptables -t nat -D POSTROUTING -o [network adapter of the wireguard server] -j MASQUERADE
+ListenPort = [port of the wireguard server]
+PrivateKey = [private key of the wireguard server]
 
 [Peer]
 # Peer 1
 PublicKey = [public key of peer 1]
-AllowedIPs = [custop IP in the range 10.8.x.x+1]/32
-
+AllowedIPs = [custop IP in the range 10.x.x.x+1]/32
 
 [Peer]
 # Peer 2
 PublicKey = [public key of the peer 2
-AllowedIPs = [custop IP in the range 10.8.x.x+2]/32
-
+AllowedIPs = [custop IP in the range 10.x.x.x+2]/32
+```
 
 ## Peer 1 configuration
+In every peer you install wireguard and create key pair.
+
+```bash
 [Interface]
 PrivateKey = [private key of peer 1]
-Address = [custop IP in the range 10.8.x.x+1]/24
+Address = [custop IP in the range 10.x.x.x+1]/24
 DNS = 1.1.1.1, 8.8.8.8
 
 [Peer]
-PublicKey = [public key of the server (can be checked with `sudo wg` on the server)]
+PublicKey = [public key of the wireguard server (can be checked with `sudo wg` on the server)]
 AllowedIPs = 0.0.0.0/0
-Endpoint = [public IP of the wireguard server]:[port of the server]
+Endpoint = [public IP of the wireguard server]:[port of the wireguard server]
+```
+
+## Peer 2 configuration (OpenWRT)
+These are mine configs in file /etc/config/network
+
+```bash
+...
+
+config device
+        option name 'br-lan'
+        option type 'bridge'
+        list ports 'eth0'
+
+config interface 'lan'
+        option device 'br-lan'
+        option proto 'static'
+        option ipaddr '[ip of openWRT can be any]'
+        option netmask '255.255.255.0'
+        option ip6assign '60'
+        option force_link '1'
+
+config interface 'wwan'
+        option proto 'dhcp'
+        option peerdns '0'
+        option dns '1.1.1.1 8.8.8.8'
+
+config interface 'vpn'
+        option proto 'wireguard'
+        option private_key '[private key of peer 2]'
+        list addresses '[custop IP in the range 10.x.x.x+2]/24'
+
+config wireguard_vpn 'wgserver'
+        option public_key '[public key of wireguard server]'
+        option endpoint_host '[public ip of wireguard server]'
+        option endpoint_port '[port of the wireguard server]'
+        option persistent_keepalive '25'
+        option route_allowed_ips '1'
+        list allowed_ips '0.0.0.0/0'
+```
+
+## Output of `sudo wg`
+
+```bash
+$ sudo wg
+interface: wg0
+  public key: [public key of the wireguard server]
+  private key: (hidden)
+  listening port: [port of the wireguard server]
+
+peer: [public key of peer 1]
+  endpoint: [ip and port of endpoing of peer 1]
+  allowed ips: [ip of peer 1]/32
+  latest handshake: 10 days, 19 hours, 44 minutes, 18 seconds ago
+  transfer: 366.14 MiB received, 321.77 MiB sent
+
+peer: [public key of peer 2]
+  endpoint: [ip and port of endpoing of peer 2]
+  allowed ips: [ip of peer 2]/32
+  latest handshake: 24 days, 17 hours, 23 minutes, 16 seconds ago
+  transfer: 104.36 MiB received, 235.48 MiB sent
+```
