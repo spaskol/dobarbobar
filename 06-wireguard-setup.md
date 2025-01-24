@@ -1,6 +1,23 @@
 # Wireguard multipeer Configuration
 
-## Install Wireguard
+## Prerequisits
+
+### Enabling forwarding
+
+To make possible communicate two peers connected to a peer acting as vpn server, the server must enable packet forward changing the file:
+
+/etc/sysctl.conf
+
+Uncomment the line with
+
+net.ipv4.ip_forward=1
+
+save and run to update configuration
+
+$ sysctl -p
+
+
+### Install Wireguard
 Install WireGuard via whatever package manager you use.  For me, I use apt.
 
 ```bash
