@@ -1,3 +1,6 @@
+# Wireguard multipeer Configuration
+
+## Install Wireguard
 Install WireGuard via whatever package manager you use.  For me, I use apt.
 
 ```bash
