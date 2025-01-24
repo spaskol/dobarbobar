@@ -30,6 +30,15 @@ Generate key your key pairs.  The key pairs are just that, key pairs.  They can 
 generated on any device, as long as you keep the private key on the source and 
 place the public on the destination.  
 
+
+
+From the https://wiki.archlinux.org/title/WireGuard, use (not tested, commented by @Roy-Orbison)
+```bash
+wg genkey | (umask 077 && tee privatekey) | wg pubkey > publickey
+
+So the private key is created not readable to others.
+```
+
 ```bash
 $ wg genkey | tee privatekey | wg pubkey > publickey
 ```
