@@ -163,3 +163,6 @@ peer: [public key of peer 2]
   latest handshake: 24 days, 17 hours, 23 minutes, 16 seconds ago
   transfer: 104.36 MiB received, 235.48 MiB sent
 ```
+
+## Source
+https://gist.github.com/chrisswanda/88ade75fc463dcf964c6411d1e9b20f4
