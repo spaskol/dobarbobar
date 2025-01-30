@@ -164,8 +164,7 @@ peer: [public key of peer 2]
   transfer: 104.36 MiB received, 235.48 MiB sent
 ```
 
-## More about AllowedIs
-
+## More about AllowedIPs
 
 ```bash
 # AllowedIPs: controls which network traffic enters and leaves the client 
