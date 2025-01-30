@@ -164,5 +164,20 @@ peer: [public key of peer 2]
   transfer: 104.36 MiB received, 235.48 MiB sent
 ```
 
+## More about AllowedIs
+
+
+```bash
+# AllowedIPs: controls which network traffic enters and leaves the client 
+# AllowedIPs: acts as a routing table when sending and an Access Control List (ACL) when receiving
+# AllowedIPs: for client-to-Internet-VPN scenario, use: 0.0.0.0/0, ::/0
+# AllowedIPs: 0.0.0.0/0, ::/0 allows traffic from any source to any target
+# AllowedIPs: 0.0.0.0/0, ::/0 allows traffic to and from the entire internet
+# AllowedIPs: for client-to-server(s)-VPN scenario, use: server.IP.address, server(s).subnet.CIDR 
+# AllowedIPs: client-to-server(s)-VPN scenario example: 172.16.2.1/32, 10.2.1.0/16
+# AllowedIPs: 172.16.2.1/32, 10.2.1.0/16 allows traffic to and from a WireGuard server at 172.16.2.1 and any server/device in the 10.2.1.0/16 subnet
+# AllowedIPs: /16 is 65,534 available IP address
+```
+from [dhackney](https://gist.github.com/dhackney)
 ## Source
 https://gist.github.com/chrisswanda/88ade75fc463dcf964c6411d1e9b20f4
