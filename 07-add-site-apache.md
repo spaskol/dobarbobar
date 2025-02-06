@@ -99,6 +99,49 @@ sudo systemctl restart apache2
 ```
 
 ## Create Let's encrypt certificate
+I thought it will be difficult but it is quite easy
 
-TODO
+### First I Installed "certbot"
+After everything was set you just need to instal 'certbot' 
+
+```bash
+sudo apt update
+sudo apt install certbot python3-certbot-apache
+```
+
+### Then I installed the certificate
+
+I just executed the following command
+
+```bash
+sudo certbot --apache -d example.com
+```
+
+and I got this:
+
+```bash
+Saving debug log to /var/log/letsencrypt/letsencrypt.log
+Requesting a certificate for example.com
+
+Successfully received certificate.
+Certificate is saved at: /etc/letsencrypt/live/example.com/fullchain.pem
+Key is saved at:         /etc/letsencrypt/live/example.com/privkey.pem
+This certificate expires on 2025-05-07.
+These files will be updated when the certificate renews.
+Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+Deploying certificate
+Successfully deployed certificate for example.com to /etc/apache2/sites-available/example-le-ssl.conf
+Congratulations! You have successfully enabled HTTPS on https://example.com
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+If you like Certbot, please consider supporting our work by:
+ * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+ * Donating to EFF:                    https://eff.org/donate-le
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+```
+
+## Source:
+Using ChatGPT to optain the information.
+
 
