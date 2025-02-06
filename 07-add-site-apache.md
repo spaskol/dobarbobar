@@ -1,4 +1,4 @@
-# Add site in Apache HHTP
+# Add site in Apache HTTP
 
 Here I show how to add site in Apache web server, add basic authorization and use duckdns.org
 
