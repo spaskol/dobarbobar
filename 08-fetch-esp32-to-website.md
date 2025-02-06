@@ -165,8 +165,8 @@ So I added below lines in my /var/www/example/index.html file.
 ...
 
 <h2>Temperature from ESP 32 sensor:</h2>
-        <p>Temperature: <span id="temperature">Loading...</span></p>
-        <p>Humidity: <span id="humidity">Loading...</span></p>
+<p>Temperature: <span id="temperature">Loading...</span></p>
+<p>Humidity: <span id="humidity">Loading...</span></p>
 ```
 
 ## Source:
