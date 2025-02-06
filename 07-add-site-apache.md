@@ -99,9 +99,11 @@ sudo systemctl restart apache2
 ```
 
 ## Create Let's encrypt certificate
-I thought it will be difficult but it is quite easy
+
+I thought it will be difficult but it was quite easy
 
 ### First I Installed "certbot"
+
 After everything was set you just need to instal 'certbot' 
 
 ```bash
