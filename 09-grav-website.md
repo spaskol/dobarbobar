@@ -57,7 +57,7 @@ sudo systemctl restart apache2
 
 Access Grav by www.mywebsite.com/admin and create username and password.
 
-### Useful: Allow Your User to Edit Files Without Issues
+## Useful: Allow Your User to Edit Files Without Issues
 
 If your user is youruser, add them to the web group:
 
