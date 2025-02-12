@@ -73,4 +73,6 @@ su - youruser
 
 Now, you can edit files using:
 
+```bash
 sudo nano /var/www/mywebsite/index.php
+```
