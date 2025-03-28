@@ -100,7 +100,7 @@ DNS = 1.1.1.1, 8.8.8.8
 
 [Peer]
 PublicKey = [public key of the wireguard server (can be checked with `sudo wg` on the server)]
-AllowedIPs = 0.0.0.0/0
+AllowedIPs = 0.0.0.0/0, 192.168.0.0/24
 Endpoint = [public IP of the wireguard server]:[port of the wireguard server]
 ```
 
@@ -165,6 +165,12 @@ peer: [public key of peer 2]
 ```
 
 ## More about AllowedIPs
+
+I added my local network (192.168.0.0/24) otherwise I have internet but no access to my local resources.
+
+```bash
+AllowedIPs = 0.0.0.0/0, 192.168.0.0/24
+```
 
 ```bash
 # AllowedIPs: controls which network traffic enters and leaves the client 
