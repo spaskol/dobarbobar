@@ -105,6 +105,19 @@ Endpoint = [public IP of the wireguard server]:[port of the wireguard server]
 ```
 
 ## Peer 2 configuration (OpenWRT)
+
+Install OpenWRT on Raspbery Pi 3 B
+
+1. Flash SD Card
+2. Default IP Address is 192.168.1.1
+3. Default password is empty
+4. You can SSH to the router and replace the configurations in /etc/config
+5. Restart OpenWrt
+6. Connect to your wireless internet
+7. SSH again and execute "opkg update" "opkg install wireguard-tools kmod-wireguard luci-proto-wireguard"
+8. Restart OpenWrt
+
+
 These are mine configs in file /etc/config/network
 
 ```bash
